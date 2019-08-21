@@ -1,13 +1,16 @@
 const config = require('./config').root;
 const Koa = require('koa');
 const app = new Koa();
-const bodyParser = require("koa-bodyparser");
-const router = require('./routers/test');
+const middleware = require('./middleware');
+const routes = require('./routes');
 
-app.use(bodyParser());
+app.use(middleware());
+app.use(routes());
 
-app.use(router.routes()).use(router.allowedMethods());
+// no proper route found
+app.use(ctx => ctx.status = 404);
 
+// smth goes wrong
 app.on('error', err => {
   console.log('server error', err)
 });
