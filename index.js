@@ -1,20 +1,27 @@
-const config = require('./config');
+const config = require('./config').root;
 const Koa = require('koa');
 const app = new Koa();
+const bodyParser = require("koa-bodyparser");
+const router = require('./routers/test');
 
-const Router = require('koa-router');
-const router = new Router();
+app.use(bodyParser());
 
-const pstg = require('./postgres');
-router.get('hoba', '/:id', (ctx, next) => {
-  ctx.body = {
-    name: ctx.params.id
-  };
-} )
 app.use(router.routes()).use(router.allowedMethods());
+
+app.on('error', err => {
+  console.log('server error', err)
+});
 
 const server = app.listen(config.PORT, () => {
   console.log(`Server listening on port: ${config.PORT}`);
+});
+
+process.on('SIGINT', function() {
+  const mongo = require('./mongo/mongoose-connection');
+  mongo.connection.close(function () {
+      console.log('Mongoose default connection closed through app termination');
+      process.exit(0);
+  });
 });
 
 module.exports = server;

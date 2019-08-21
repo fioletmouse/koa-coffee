@@ -1,5 +1,10 @@
 const config = {
-  PORT: 3000
+  root: {
+    PORT: 3000
+  },
+  db: {
+    connString: 'mongodb://localhost:27017/Coffee'
+  }
 }
 
 module.exports = config;
