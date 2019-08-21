@@ -1,7 +1,7 @@
 const compose = require('koa-compose');
 const Router = require('koa-router');
 
-const routerConfigs = [{ folder: 'technique', prefix: '' }];
+const routerConfigs = [{ folder: 'brewing', prefix: '/brewing' }];
 
 function routes() {
   const composed = [];
