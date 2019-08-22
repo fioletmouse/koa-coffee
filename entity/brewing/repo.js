@@ -1,4 +1,4 @@
-const Brewing = require('../../mongo/schemas/brewing');
+const Brewing = require('./schema');
 
 function getAll() {
   return Brewing.find({}).exec();

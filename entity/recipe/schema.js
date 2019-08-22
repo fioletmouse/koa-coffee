@@ -1,4 +1,4 @@
-const mng = require('../mongoose-connection');
+const mng = require('../../mongo/mongoose-connection');
 
 var recipeSchema = new mng.Schema({
   name: String,

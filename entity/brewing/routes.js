@@ -1,4 +1,4 @@
-const Brewing = require('../../mongo/actions/brewing');
+const Brewing = require('./repo');
 
 function BrewingRoutes(router) {
   router.get('/',  async (ctx, next) => {

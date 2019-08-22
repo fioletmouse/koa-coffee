@@ -1,14 +1,14 @@
 const compose = require('koa-compose');
 const Router = require('koa-router');
 
-const routerConfigs = [{ folder: 'brewing', prefix: '/brewing' }];
+const routerConfigs = require('./dir-collection');
 
 function routes() {
   const composed = [];
 
   routerConfigs.forEach( config  => {
     const router = new Router({ prefix: config.prefix });
-    require(`./${config.folder}`)(router);
+    require(`../entity/${config.folder}/routes`)(router);
     composed.push(router.routes());
     composed.push(router.allowedMethods());
   });
