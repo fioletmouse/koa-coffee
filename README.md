@@ -19,3 +19,4 @@ Docker container with postres failed to install locally :(
 2. Add swagger
 3. Add testing
 4. Add joi
+5. Add node-config
