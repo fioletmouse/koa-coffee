@@ -7,8 +7,6 @@ const config = {
   },
   paths: {
     collection: 'entity',
-    public: 'static',
-    icon: 'favicon.ico',
     routeFile: 'routes.js'
   }
 }
