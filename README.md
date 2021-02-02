@@ -13,10 +13,15 @@ Server-side part for my front-app.
 3. Routes' files are located in each entity and are searched on start automatically. Need just  have schema "entity folder -> folder -> routes"
 4. All names and settings are taken from config.
 
+## Start:
+- mongo in docker `docker run -d -p 27017-27019:27017-27019 --name some-mongo mongo`
+- npm start localhost:3000
+
 ## Need to:
 1. Add graphQL
 2. Add swagger
 3. Add testing
 4. Add joi
 5. Add node-config
-6. Mongo with docker  + postre as an option
+6. postre as an option
+7. Docker container auto deployment
